@@ -12,37 +12,26 @@
       <center><img id="img1" src="izzi.png" alt="logo izzi"></center><br>
   <center><h1>CAJEROS ATM</h1></center>  
         
-  <div class="video-container">
-      <center><img id="img2" src="atm.png" alt="logo izzi"></center><br><br>
-    <center><div class="video"><video src="2.mp4" muted></video></div></center><br>     
-    </div>
- 
-  <div class="popup-video" style="display: none;">
-    <span>&times;</span>
-    <video muted controls></video>
-  </div>
-</div>
- 
+  <div class="video-preview">
+<img src="12.png" alt="Vista previa del video" id="previewImg">
 <script>
-  document.querySelectorAll('.video-container video').forEach(vid => {
-    vid.onclick = () => {
-      const popup = document.querySelector('.popup-video');
-      const popupVideo = popup.querySelector('video');
-popup.style.display = 'block';
-      popupVideo.src = vid.getAttribute('src');
-popupVideo.play(); // reproducir solo cuando haces clic
-    }
+document.querySelector('img').addEventListener('contextmenu', function(e) {
+e.preventDefault();
   });
- 
-  document.querySelector('.popup-video span').onclick = () => {
-    const popup = document.querySelector('.popup-video');
-    const popupVideo = popup.querySelector('video');
-    popupVideo.pause();
-    popupVideo.currentTime = 0;
-popup.style.display = 'none';
-  }
+</script>
+<center><button class="play-button" onclick="reproducirVideo()">
+<svg viewBox="0 0 24 24">
+      <path d="M8 5v14l11-7z"/>
+    </svg>    
+</button></center>
+<video id="video" src="2.mp4" controls></video>
+<script>
+document.querySelector('video').addEventListener('contextmenu', function(e) {
+e.preventDefault();
+  });
 </script>
     
 </body>
 </html>
+
 
